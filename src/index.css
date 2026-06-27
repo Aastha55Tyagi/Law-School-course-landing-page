@@ -1,0 +1,49 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-[#FAF8F3] text-[#1C2A24] font-sans antialiased overflow-x-hidden;
+  }
+  
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image: 
+      radial-gradient(ellipse at top left, rgba(139,46,31,0.05), transparent 50%),
+      radial-gradient(ellipse at bottom right, rgba(201,166,104,0.07), transparent 50%);
+    z-index: 0;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+/* Custom transitions and redline keyframes */
+@keyframes reveal {
+  from {
+    opacity: 0;
+    transform: translateY(4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-reveal {
+  animation: reveal 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes seal-spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+.animate-seal {
+  animation: seal-spin 20s linear infinite;
+}
